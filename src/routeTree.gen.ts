@@ -10,6 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrabajosRouteImport } from './routes/trabajos'
+import { Route as PaginaWebMalagaRouteImport } from './routes/pagina-web-malaga'
+import { Route as ConseguirClientesMalagaRouteImport } from './routes/conseguir-clientes-malaga'
+import { Route as ComoConseguirClientesNegocioRouteImport } from './routes/como-conseguir-clientes-negocio'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TrabajosRoute = TrabajosRouteImport.update({
@@ -17,6 +20,22 @@ const TrabajosRoute = TrabajosRouteImport.update({
   path: '/trabajos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaginaWebMalagaRoute = PaginaWebMalagaRouteImport.update({
+  id: '/pagina-web-malaga',
+  path: '/pagina-web-malaga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConseguirClientesMalagaRoute = ConseguirClientesMalagaRouteImport.update({
+  id: '/conseguir-clientes-malaga',
+  path: '/conseguir-clientes-malaga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoConseguirClientesNegocioRoute =
+  ComoConseguirClientesNegocioRouteImport.update({
+    id: '/como-conseguir-clientes-negocio',
+    path: '/como-conseguir-clientes-negocio',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,27 +44,55 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-conseguir-clientes-negocio': typeof ComoConseguirClientesNegocioRoute
+  '/conseguir-clientes-malaga': typeof ConseguirClientesMalagaRoute
+  '/pagina-web-malaga': typeof PaginaWebMalagaRoute
   '/trabajos': typeof TrabajosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-conseguir-clientes-negocio': typeof ComoConseguirClientesNegocioRoute
+  '/conseguir-clientes-malaga': typeof ConseguirClientesMalagaRoute
+  '/pagina-web-malaga': typeof PaginaWebMalagaRoute
   '/trabajos': typeof TrabajosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-conseguir-clientes-negocio': typeof ComoConseguirClientesNegocioRoute
+  '/conseguir-clientes-malaga': typeof ConseguirClientesMalagaRoute
+  '/pagina-web-malaga': typeof PaginaWebMalagaRoute
   '/trabajos': typeof TrabajosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/trabajos'
+  fullPaths:
+    | '/'
+    | '/como-conseguir-clientes-negocio'
+    | '/conseguir-clientes-malaga'
+    | '/pagina-web-malaga'
+    | '/trabajos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/trabajos'
-  id: '__root__' | '/' | '/trabajos'
+  to:
+    | '/'
+    | '/como-conseguir-clientes-negocio'
+    | '/conseguir-clientes-malaga'
+    | '/pagina-web-malaga'
+    | '/trabajos'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-conseguir-clientes-negocio'
+    | '/conseguir-clientes-malaga'
+    | '/pagina-web-malaga'
+    | '/trabajos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoConseguirClientesNegocioRoute: typeof ComoConseguirClientesNegocioRoute
+  ConseguirClientesMalagaRoute: typeof ConseguirClientesMalagaRoute
+  PaginaWebMalagaRoute: typeof PaginaWebMalagaRoute
   TrabajosRoute: typeof TrabajosRoute
 }
 
@@ -56,6 +103,27 @@ declare module '@tanstack/react-router' {
       path: '/trabajos'
       fullPath: '/trabajos'
       preLoaderRoute: typeof TrabajosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pagina-web-malaga': {
+      id: '/pagina-web-malaga'
+      path: '/pagina-web-malaga'
+      fullPath: '/pagina-web-malaga'
+      preLoaderRoute: typeof PaginaWebMalagaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conseguir-clientes-malaga': {
+      id: '/conseguir-clientes-malaga'
+      path: '/conseguir-clientes-malaga'
+      fullPath: '/conseguir-clientes-malaga'
+      preLoaderRoute: typeof ConseguirClientesMalagaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-conseguir-clientes-negocio': {
+      id: '/como-conseguir-clientes-negocio'
+      path: '/como-conseguir-clientes-negocio'
+      fullPath: '/como-conseguir-clientes-negocio'
+      preLoaderRoute: typeof ComoConseguirClientesNegocioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +138,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoConseguirClientesNegocioRoute: ComoConseguirClientesNegocioRoute,
+  ConseguirClientesMalagaRoute: ConseguirClientesMalagaRoute,
+  PaginaWebMalagaRoute: PaginaWebMalagaRoute,
   TrabajosRoute: TrabajosRoute,
 }
 export const routeTree = rootRouteImport
