@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MessageCircle, ArrowRight, Globe, Share2, MapPin, Bot, Search, PenTool, Code2, Gauge, ArrowUpRight, AtSign, Palette } from "lucide-react";
+import { MessageCircle, ArrowRight, Globe, Share2, MapPin, Bot, Search, PenTool, Code2, Gauge, ArrowUpRight, AtSign, Palette, Users, BookOpen } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import heroImg from "@/assets/hero-workspace.jpg";
