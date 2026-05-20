@@ -109,7 +109,10 @@ export function Footer() {
               Volver arriba
               <ArrowUp className="h-4 w-4 text-slate-500" />
             </a>
-            <p className="text-slate-500">Todos los derechos reservados</p>
+            <p className="text-slate-500">© 2025 LevelUp Design Co.</p>
+            <a href="/privacidad" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
+              Política de privacidad
+            </a>
           </div>
         </div>
       </div>

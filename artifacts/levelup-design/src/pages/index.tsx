@@ -57,8 +57,8 @@ export default function IndexPage() {
           <div className="relative z-10">
             <HowWeHelp />
             <ProblemSolution />
-            <ForWhom />
             <Services />
+            <ForWhom />
             <FinalCTA />
           </div>
         </section>
