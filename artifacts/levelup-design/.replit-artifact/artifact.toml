@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "LevelUp Design Co."
+version = "1.0.0"
+id = "artifacts/levelup-design"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22646
+
+[services.development]
+run = "pnpm --filter @workspace/levelup-design run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/levelup-design", "run", "build" ]
+publicDir = "artifacts/levelup-design/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22646"
+BASE_PATH = "/"
