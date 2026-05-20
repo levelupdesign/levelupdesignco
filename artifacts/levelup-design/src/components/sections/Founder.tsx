@@ -25,10 +25,10 @@ export function Founder() {
               Trabajo directamente contigo
             </h2>
             <p className="mt-6 text-base md:text-lg leading-relaxed text-white/72 font-sans">
-              Desarrollo webs, sistemas y herramientas digitales pensadas para negocios reales. Cada proyecto se construye de forma personalizada según las necesidades de cada cliente.
+              Diseño y desarrollo webs para negocios y marcas personales que quieren una presencia profesional y auténtica.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-white/55 max-w-md">
-              No trabajo con plantillas genéricas ni soluciones improvisadas. Busco que cada negocio tenga una presencia profesional, clara y útil para captar clientes y organizar mejor su trabajo.
+              Trabajo cada proyecto de forma directa, combinando diseño, desarrollo y visión real de negocio.
             </p>
           </ScrollReveal>
         </div>
