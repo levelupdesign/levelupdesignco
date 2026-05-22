@@ -34,6 +34,23 @@ function normalizeBasePath(value) {
   return normalized.replace(/\/{2,}/g, "/");
 }
 
+function normalizeSiteUrl(value) {
+  return value.trim().replace(/\/+$/, "");
+}
+
+function getRepositorySlug() {
+  if (process.env.GITHUB_REPOSITORY) {
+    return process.env.GITHUB_REPOSITORY;
+  }
+
+  const remote = run("git", ["config", "--get", "remote.origin.url"], {
+    check: false,
+  }).stdout.trim();
+  const match = remote.match(/github\.com[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+
+  return match ? `${match[1]}/${match[2]}` : undefined;
+}
+
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
     cwd: workspaceRoot,
@@ -55,16 +72,9 @@ function run(command, args, options = {}) {
 }
 
 function getRepositoryName() {
-  if (process.env.GITHUB_REPOSITORY) {
-    return process.env.GITHUB_REPOSITORY.split("/").pop();
-  }
+  const repositorySlug = getRepositorySlug();
 
-  const remote = run("git", ["config", "--get", "remote.origin.url"], {
-    check: false,
-  }).stdout.trim();
-  const match = remote.match(/[:/]([^/:]+?)(?:\.git)?$/);
-
-  return match?.[1] ?? path.basename(workspaceRoot);
+  return repositorySlug?.split("/").pop() ?? path.basename(workspaceRoot);
 }
 
 function getBasePath(target) {
@@ -87,6 +97,34 @@ function getBasePath(target) {
   }
 
   return "/";
+}
+
+function getSiteUrl(target, basePath) {
+  if (process.env.VITE_SITE_URL) {
+    return normalizeSiteUrl(process.env.VITE_SITE_URL);
+  }
+
+  if (target !== "github-pages") {
+    return "https://levelupdesign.com";
+  }
+
+  if (process.env.GITHUB_PAGES_URL) {
+    return normalizeSiteUrl(process.env.GITHUB_PAGES_URL);
+  }
+
+  const repositorySlug = getRepositorySlug();
+
+  if (!repositorySlug) {
+    return "https://levelupdesign.com";
+  }
+
+  const [owner, repo] = repositorySlug.split("/");
+
+  if (repo.endsWith(".github.io")) {
+    return `https://${repo}`;
+  }
+
+  return normalizeSiteUrl(`https://${owner}.github.io${basePath}`);
 }
 
 async function pathExists(filePath) {
@@ -213,12 +251,14 @@ async function main() {
   const target = process.env.DEPLOY_TARGET ?? "static";
   const app = await detectDeployableViteApp();
   const basePath = getBasePath(target);
+  const siteUrl = getSiteUrl(target, basePath);
   const port = process.env.PORT ?? "8080";
 
   console.log(`Detected framework: Vite`);
   console.log(`Detected static app: ${app.name}`);
   console.log(`Deploy target: ${target}`);
   console.log(`Base path: ${basePath}`);
+  console.log(`Site URL: ${siteUrl}`);
 
   const buildResult = spawnSync(
     "pnpm",
@@ -229,6 +269,7 @@ async function main() {
         ...process.env,
         BASE_PATH: basePath,
         PORT: port,
+        VITE_SITE_URL: siteUrl,
       },
       stdio: "inherit",
     },
