@@ -45,8 +45,8 @@ export function HowWeHelp() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {cards.map(({ icon: Icon, title, desc, cta, to }) => (
-            <article key={title} className="flex flex-col gap-4 px-1">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft/15 text-brand shadow-sm shadow-black/20">
+            <article key={title} className="group flex flex-col gap-4 rounded-2xl px-1 transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft/15 text-brand shadow-sm shadow-black/20 transition-transform duration-300 group-hover:scale-105">
                 <Icon className="h-5 w-5" />
               </div>
 
@@ -62,7 +62,7 @@ export function HowWeHelp() {
 
               <Link
                 to={to}
-                className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:underline"
+                className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand transition-all hover:gap-3 hover:text-brand-soft"
               >
                 {cta}
                 <ArrowRight className="h-4 w-4" />

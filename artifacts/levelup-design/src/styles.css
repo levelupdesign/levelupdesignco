@@ -140,6 +140,7 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #020617;
   }
 
   body {
@@ -147,11 +148,26 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--brand) 72%, white 12%);
+    color: white;
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in oklch, var(--brand) 72%, white 12%);
+    outline-offset: 3px;
   }
 }
 
@@ -172,6 +188,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   .hero-enter {
     animation: none;
     opacity: 1;

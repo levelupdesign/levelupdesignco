@@ -1,5 +1,5 @@
 import { ProjectCard } from "@/components/ProjectCard";
-import homeLevelupInteriores from "@/assets/home-levelupinteriores.png";
+import homeLevelupInteriores from "@/assets/home-levelupinteriores.svg";
 
 interface Project {
   id: string;
@@ -49,6 +49,7 @@ export function Projects() {
             title={project.title}
             description={project.description}
             image={project.image}
+            imageAlt="Vista previa del proyecto web LevelUp Interiores"
             link={project.link}
           />
         ))}

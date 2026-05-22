@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { site } from "@/lib/site";
 
 export default function PrivacidadPage() {
   return (
@@ -8,6 +9,7 @@ export default function PrivacidadPage() {
       <SEO
         title="Política de privacidad | LevelUp Design Co."
         description="Política de privacidad de LevelUp Design Co. adaptada al RGPD y a la normativa española de protección de datos."
+        path="/privacidad"
       />
       <Header />
       <main className="pt-16">
@@ -24,11 +26,13 @@ export default function PrivacidadPage() {
             <section className="space-y-3">
               <h2 className="font-serif text-lg text-white">1. Responsable del tratamiento</h2>
               <p>
-                <strong className="text-white/90">Responsable:</strong> Juan Leiva, bajo la denominación comercial LevelUp Design Co.<br />
-                <strong className="text-white/90">Email de contacto:</strong> contacto@levelupdesign.com<br />
-                <strong className="text-white/90">Teléfono:</strong> 606 899 991<br />
+                <strong className="text-white/90">Responsable:</strong> {site.legalName}<br />
+                <strong className="text-white/90">NIF/CIF:</strong> {site.vat}<br />
+                <strong className="text-white/90">Domicilio fiscal:</strong> {site.fiscalAddress}<br />
+                <strong className="text-white/90">Email de contacto:</strong> {site.email}<br />
+                <strong className="text-white/90">Teléfono / WhatsApp:</strong> {site.phoneDisplay}<br />
                 <strong className="text-white/90">Ámbito de actividad:</strong> diseño web, desarrollo digital, automatización y branding para empresas.<br />
-                <strong className="text-white/90">Ubicación:</strong> Málaga, España.
+                <strong className="text-white/90">Ubicación:</strong> {site.location}.
               </p>
             </section>
 
@@ -90,7 +94,7 @@ export default function PrivacidadPage() {
                 <li>Portabilidad de los datos cuando proceda.</li>
               </ul>
               <p>
-                Para ejercer estos derechos, se puede escribir a <strong className="text-white/90">contacto@levelupdesign.com</strong>, indicando el derecho que se desea ejercer y aportando información suficiente para verificar la identidad.
+                Para ejercer estos derechos, se puede escribir a <strong className="text-white/90">{site.email}</strong>, indicando el derecho que se desea ejercer y aportando información suficiente para verificar la identidad.
               </p>
               <p>
                 También existe derecho a presentar una reclamación ante la Agencia Española de Protección de Datos a través de www.aepd.es.

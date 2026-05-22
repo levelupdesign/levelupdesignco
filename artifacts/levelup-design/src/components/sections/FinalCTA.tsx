@@ -1,6 +1,5 @@
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/34606899991?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20asesoramiento%20para%20mi%20negocio.";
+import { whatsappLinks } from "@/lib/site";
 
 export function FinalCTA() {
   return (
@@ -18,15 +17,25 @@ export function FinalCTA() {
           Si una empresa busca mejorar su imagen, captar más clientes o estructurar su presencia online, el estudio está disponible para valorar el proyecto sin compromiso.
         </p>
 
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-2.5 rounded-md bg-brand px-7 py-3.5 text-sm font-medium text-brand-foreground shadow-[0_4px_20px_rgba(123,30,43,0.3)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-px hover:bg-[oklch(0.32_0.12_18)] hover:shadow-[0_8px_28px_rgba(123,30,43,0.45)]"
-        >
-          <MessageCircle className="h-4 w-4" />
-          Solicitar asesoramiento por WhatsApp
-        </a>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={whatsappLinks.budget}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2.5 rounded-md bg-brand px-7 py-3.5 text-sm font-semibold text-brand-foreground shadow-[0_4px_20px_rgba(123,30,43,0.3)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-px hover:bg-[oklch(0.32_0.12_18)] hover:shadow-[0_8px_28px_rgba(123,30,43,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-soft sm:w-auto"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Solicitar presupuesto
+          </a>
+          <a
+            href={whatsappLinks.contact}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2.5 rounded-md border border-white/15 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white transition-[transform,border-color,background-color] duration-300 ease-out hover:-translate-y-px hover:border-brand/40 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-soft sm:w-auto"
+          >
+            Contactar por WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -40,9 +40,9 @@ export function ForWhom() {
           {profiles.map(({ icon: Icon, title, desc }) => (
             <article
               key={title}
-              className="flex flex-col gap-4 rounded-2xl border border-white/8 bg-white/4 px-5 py-6 backdrop-blur-sm"
+              className="group flex flex-col gap-4 rounded-2xl border border-white/8 bg-white/4 px-5 py-6 backdrop-blur-sm transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-brand/35 hover:bg-white/[0.06]"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand shadow-sm shadow-black/20">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/15 text-brand shadow-sm shadow-black/20 transition-transform duration-300 group-hover:scale-105">
                 <Icon className="h-5 w-5" />
               </div>
               <div className="space-y-2">

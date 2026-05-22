@@ -4,6 +4,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
+  imageAlt?: string;
   link: string;
 }
 
@@ -11,6 +12,7 @@ export function ProjectCard({
   title,
   description,
   image,
+  imageAlt,
   link,
 }: ProjectCardProps) {
   return (
@@ -24,7 +26,9 @@ export function ProjectCard({
       <div className="relative h-72 md:h-80 w-full overflow-hidden bg-slate-900">
         <img
           src={image}
-          alt={title}
+          alt={imageAlt ?? `${title} - proyecto de diseño web realizado por LevelUp Design Co.`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Overlay gradiente */}

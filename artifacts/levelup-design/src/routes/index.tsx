@@ -11,9 +11,10 @@ import { LifestyleBand } from "@/components/sections/LifestyleBand";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
+const lifestyleBackground =
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=75";
 const workspaceBackground =
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80";
-import lifestyleWalking from "@/assets/lifestyle-walking.png";
+  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=72";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,8 +54,8 @@ function Index() {
         <section
           className="relative overflow-hidden bg-cover bg-center"
           style={{
-            backgroundImage: `url(${lifestyleWalking})`,
-            backgroundPosition: "center top",
+            backgroundImage: `url(${lifestyleBackground})`,
+            backgroundPosition: "center 35%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}

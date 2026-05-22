@@ -8,6 +8,7 @@ export default function CookiesPage() {
       <SEO
         title="Política de cookies | LevelUp Design Co."
         description="Información sobre el uso de cookies técnicas, terceros y gestión de preferencias en LevelUp Design Co."
+        path="/cookies"
       />
       <Header />
       <main className="pt-16">
