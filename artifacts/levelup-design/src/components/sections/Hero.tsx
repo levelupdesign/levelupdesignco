@@ -1,7 +1,6 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const WHATSAPP = "https://wa.me/34606899991";
+import { whatsappLinks } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -43,24 +42,26 @@ export function Hero() {
           </p>
 
           <div
-            className="hero-enter mt-8 flex flex-wrap gap-3"
+            className="hero-enter mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             style={{ animationDelay: "280ms" }}
           >
             <a
-              href={WHATSAPP}
+              href={whatsappLinks.budget}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-brand px-5 py-3 text-sm font-medium text-brand-foreground shadow-[0_4px_14px_rgba(123,30,43,0.25)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-px hover:bg-[oklch(0.32_0.12_18)] hover:shadow-[0_8px_24px_rgba(123,30,43,0.35)]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground shadow-[0_4px_14px_rgba(123,30,43,0.25)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-px hover:bg-[oklch(0.32_0.12_18)] hover:shadow-[0_8px_24px_rgba(123,30,43,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-soft sm:w-auto"
             >
               <MessageCircle className="h-4 w-4" />
-              Solicitar asesoramiento por WhatsApp
+              Solicitar presupuesto
             </a>
 
             <a
-              href="#servicios"
-              className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/10 px-5 py-3 text-sm font-medium text-white transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-px hover:border-brand/40 hover:shadow-sm"
+              href={whatsappLinks.call}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out hover:-translate-y-px hover:border-brand/40 hover:bg-white/15 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-soft sm:w-auto"
             >
-              Ver servicios
+              Reservar llamada
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>

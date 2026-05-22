@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { site } from "@/lib/site";
 
 export default function AvisoLegalPage() {
   return (
@@ -8,6 +9,7 @@ export default function AvisoLegalPage() {
       <SEO
         title="Aviso legal | LevelUp Design Co."
         description="Aviso legal de LevelUp Design Co. con información del titular, condiciones de uso, propiedad intelectual y responsabilidades."
+        path="/aviso-legal"
       />
       <Header />
       <main className="pt-16">
@@ -24,11 +26,13 @@ export default function AvisoLegalPage() {
             <section className="space-y-3">
               <h2 className="font-serif text-lg text-white">1. Titular del sitio web</h2>
               <p>
-                <strong className="text-white/90">Titular:</strong> Juan Leiva, bajo la denominación comercial LevelUp Design Co.<br />
+                <strong className="text-white/90">Titular:</strong> {site.legalName}<br />
+                <strong className="text-white/90">NIF/CIF:</strong> {site.vat}<br />
+                <strong className="text-white/90">Domicilio fiscal:</strong> {site.fiscalAddress}<br />
                 <strong className="text-white/90">Actividad:</strong> diseño web profesional, desarrollo digital, automatización, branding y optimización de presencia online para empresas.<br />
-                <strong className="text-white/90">Email:</strong> contacto@levelupdesign.com<br />
-                <strong className="text-white/90">Teléfono:</strong> 606 899 991<br />
-                <strong className="text-white/90">Ubicación:</strong> Málaga, España.
+                <strong className="text-white/90">Email:</strong> {site.email}<br />
+                <strong className="text-white/90">Teléfono / WhatsApp:</strong> {site.phoneDisplay}<br />
+                <strong className="text-white/90">Ubicación:</strong> {site.location}.
               </p>
             </section>
 

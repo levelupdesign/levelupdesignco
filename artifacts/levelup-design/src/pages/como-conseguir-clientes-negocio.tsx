@@ -2,16 +2,16 @@ import { Link } from "wouter";
 import { MessageCircle, Globe, Smartphone, Lightbulb, ArrowRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
+import { whatsappLinks } from "@/lib/site";
 
-const WHATSAPP = "https://wa.me/34606899991";
-
-function WhatsAppButton({ label = "Escríbeme por WhatsApp" }: { label?: string }) {
+function WhatsAppButton({ label = "Contactar por WhatsApp" }: { label?: string }) {
   return (
     <a
-      href={WHATSAPP}
+      href={whatsappLinks.contact}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 bg-brand text-brand-foreground px-6 py-3.5 rounded-md text-sm font-semibold shadow-[0_6px_20px_rgba(123,30,43,0.3)] transition-all hover:bg-[oklch(0.28_0.13_18)] hover:shadow-[0_10px_28px_rgba(123,30,43,0.45)] hover:-translate-y-0.5"
+      className="inline-flex w-full items-center justify-center gap-2 bg-brand text-brand-foreground px-6 py-3.5 rounded-md text-sm font-semibold shadow-[0_6px_20px_rgba(123,30,43,0.3)] transition-all hover:bg-[oklch(0.28_0.13_18)] hover:shadow-[0_10px_28px_rgba(123,30,43,0.45)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:w-auto"
     >
       <MessageCircle className="h-4 w-4" />
       {label}
@@ -36,6 +36,12 @@ function Section({ title, icon: Icon, children }: { title: string; icon: React.E
 export default function ComoConseguirClientesPage() {
   return (
     <div id="top" className="min-h-screen bg-background">
+      <SEO
+        title="Cómo conseguir clientes para tu negocio | LevelUp Design Co."
+        description="Guía práctica para conseguir clientes con presencia online, una web que convierte, Google Business y WhatsApp como canal directo."
+        path="/como-conseguir-clientes-negocio"
+        type="article"
+      />
       <Header />
       <main className="pt-16">
         {/* Hero */}
@@ -116,13 +122,13 @@ export default function ComoConseguirClientesPage() {
             </h2>
             <div className="mt-6 flex justify-center">
               <a
-                href={WHATSAPP}
+                href={whatsappLinks.contact}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-background text-brand px-6 py-3.5 rounded-md text-sm font-semibold shadow-lg transition-all hover:-translate-y-0.5"
+                className="inline-flex w-full items-center justify-center gap-2 bg-background text-brand px-6 py-3.5 rounded-md text-sm font-semibold shadow-lg transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4" />
-                Escríbeme por WhatsApp
+                Contactar por WhatsApp
               </a>
             </div>
           </div>

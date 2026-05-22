@@ -1,0 +1,16 @@
+{
+  "name": "LevelUp Design Co.",
+  "short_name": "LevelUp",
+  "description": "Diseño web, branding, SEO y automatización para negocios.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}

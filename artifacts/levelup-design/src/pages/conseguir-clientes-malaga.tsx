@@ -2,16 +2,16 @@ import { Link } from "wouter";
 import { MessageCircle, CheckCircle2, TrendingUp, Clock, Users, Search, Wrench, Phone, ArrowRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
+import { whatsappLinks } from "@/lib/site";
 
-const WHATSAPP = "https://wa.me/34606899991";
-
-function WhatsAppButton({ label = "Quiero más clientes" }: { label?: string }) {
+function WhatsAppButton({ label = "Solicitar presupuesto" }: { label?: string }) {
   return (
     <a
-      href={WHATSAPP}
+      href={whatsappLinks.budget}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 bg-brand text-brand-foreground px-6 py-3.5 rounded-md text-sm font-semibold shadow-[0_6px_20px_rgba(123,30,43,0.3)] transition-all hover:bg-[oklch(0.28_0.13_18)] hover:shadow-[0_10px_28px_rgba(123,30,43,0.45)] hover:-translate-y-0.5"
+      className="inline-flex w-full items-center justify-center gap-2 bg-brand text-brand-foreground px-6 py-3.5 rounded-md text-sm font-semibold shadow-[0_6px_20px_rgba(123,30,43,0.3)] transition-all hover:bg-[oklch(0.28_0.13_18)] hover:shadow-[0_10px_28px_rgba(123,30,43,0.45)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:w-auto"
     >
       <MessageCircle className="h-4 w-4" />
       {label}
@@ -22,6 +22,11 @@ function WhatsAppButton({ label = "Quiero más clientes" }: { label?: string }) 
 export default function ConseguirClientesMalagaPage() {
   return (
     <div id="top" className="min-h-screen bg-background">
+      <SEO
+        title="Conseguir clientes en Málaga con web y WhatsApp | LevelUp Design Co."
+        description="Sistema de presencia online, diseño web y WhatsApp para negocios en Málaga que quieren recibir más contactos cualificados."
+        path="/conseguir-clientes-malaga"
+      />
       <Header />
       <main className="pt-16">
         {/* Hero */}
@@ -138,13 +143,13 @@ export default function ConseguirClientesMalagaPage() {
             <p className="mt-3 opacity-90">Cuéntame tu caso por WhatsApp, sin compromiso.</p>
             <div className="mt-6 flex justify-center">
               <a
-                href={WHATSAPP}
+                href={whatsappLinks.contact}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-background text-brand px-6 py-3.5 rounded-md text-sm font-semibold shadow-lg transition-all hover:-translate-y-0.5"
+                className="inline-flex w-full items-center justify-center gap-2 bg-background text-brand px-6 py-3.5 rounded-md text-sm font-semibold shadow-lg transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4" />
-                Escríbeme por WhatsApp
+                Contactar por WhatsApp
               </a>
             </div>
           </div>
