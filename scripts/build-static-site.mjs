@@ -1,5 +1,13 @@
 import { spawnSync } from "node:child_process";
-import { copyFile, cp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import {
+  copyFile,
+  cp,
+  readdir,
+  readFile,
+  rm,
+  stat,
+  writeFile,
+} from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -132,16 +140,22 @@ async function getViteCandidates() {
       continue;
     }
 
-    const candidateName = normalizeName(`${packageJson.name ?? ""} ${entry.name}`);
+    const candidateName = normalizeName(
+      `${packageJson.name ?? ""} ${entry.name}`,
+    );
     let score = 0;
 
-    if (requestedPackage && (requestedPackage === packageJson.name || requestedPackage === entry.name)) {
+    if (
+      requestedPackage &&
+      (requestedPackage === packageJson.name || requestedPackage === entry.name)
+    ) {
       score += 100;
     }
 
     if (
       repoName.length >= 5 &&
-      (candidateName.includes(repoName) || repoName.includes(candidateName.replace(/^workspace/, "")))
+      (candidateName.includes(repoName) ||
+        repoName.includes(candidateName.replace(/^workspace/, "")))
     ) {
       score += 20;
     }
@@ -157,7 +171,9 @@ async function getViteCandidates() {
     });
   }
 
-  return candidates.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+  return candidates.sort(
+    (a, b) => b.score - a.score || a.name.localeCompare(b.name),
+  );
 }
 
 async function detectDeployableViteApp() {
@@ -178,7 +194,9 @@ async function detectDeployableViteApp() {
 }
 
 async function getBuildOutputDir(appDir) {
-  const outputDirs = ["dist/public", "dist", "build"].map((dir) => path.join(appDir, dir));
+  const outputDirs = ["dist/public", "dist", "build"].map((dir) =>
+    path.join(appDir, dir),
+  );
 
   for (const outputDir of outputDirs) {
     if (await pathExists(path.join(outputDir, "index.html"))) {
@@ -186,7 +204,9 @@ async function getBuildOutputDir(appDir) {
     }
   }
 
-  throw new Error("Build finished, but no static output containing index.html was found.");
+  throw new Error(
+    "Build finished, but no static output containing index.html was found.",
+  );
 }
 
 async function main() {
@@ -200,15 +220,19 @@ async function main() {
   console.log(`Deploy target: ${target}`);
   console.log(`Base path: ${basePath}`);
 
-  const buildResult = spawnSync("pnpm", ["--filter", app.name, "run", "build"], {
-    cwd: workspaceRoot,
-    env: {
-      ...process.env,
-      BASE_PATH: basePath,
-      PORT: port,
+  const buildResult = spawnSync(
+    "pnpm",
+    ["--filter", app.name, "run", "build"],
+    {
+      cwd: workspaceRoot,
+      env: {
+        ...process.env,
+        BASE_PATH: basePath,
+        PORT: port,
+      },
+      stdio: "inherit",
     },
-    stdio: "inherit",
-  });
+  );
 
   if (buildResult.error) {
     throw buildResult.error;
@@ -222,10 +246,15 @@ async function main() {
 
   await rm(rootDistDir, { recursive: true, force: true });
   await cp(outputDir, rootDistDir, { recursive: true });
-  await copyFile(path.join(rootDistDir, "index.html"), path.join(rootDistDir, "404.html"));
+  await copyFile(
+    path.join(rootDistDir, "index.html"),
+    path.join(rootDistDir, "404.html"),
+  );
   await writeFile(path.join(rootDistDir, ".nojekyll"), "");
 
-  console.log(`Static output written to ${path.relative(workspaceRoot, rootDistDir)}`);
+  console.log(
+    `Static output written to ${path.relative(workspaceRoot, rootDistDir)}`,
+  );
 }
 
 main().catch((error) => {
