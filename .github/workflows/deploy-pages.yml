@@ -39,6 +39,7 @@ jobs:
       - name: Build for GitHub Pages
         env:
           DEPLOY_TARGET: github-pages
+          VITE_SITE_URL: https://levelupdesign.github.io/levelupdesignco
         run: node ./scripts/build-static-site.mjs
 
       - name: Publish to gh-pages branch
