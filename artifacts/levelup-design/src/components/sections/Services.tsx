@@ -36,7 +36,7 @@ export function Services() {
         </h2>
 
         <p className="mt-4 text-base text-white/70 leading-relaxed max-w-xl">
-          Cada solución se diseña y desarrolla de forma personalizada, sin plantillas ni procesos genéricos.
+          Cada solución se diseña y desarrolla de forma personalizada, adaptada a las necesidades y objetivos de tu negocio.
         </p>
       </div>
 

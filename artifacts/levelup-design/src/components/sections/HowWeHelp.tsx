@@ -34,12 +34,13 @@ export function HowWeHelp() {
             Enfoque
           </div>
 
-          <h2 className="mt-1.5 font-serif text-3xl text-white">
-            La presencia online habla antes que cualquier argumento
+          <h2 className="mt-2 font-serif text-[2rem] leading-[1.1] text-white sm:text-4xl md:text-[2.75rem] md:leading-[1.08]">
+            Tu presencia online{" "}
+            <span className="italic text-brand">habla antes que tú.</span>
           </h2>
 
-          <p className="mt-4 text-base text-white/70 max-w-xl leading-relaxed">
-            La forma en que un negocio se presenta digitalmente determina directamente cómo lo perciben sus clientes potenciales.
+          <p className="mt-5 text-base text-white/70 max-w-xl leading-relaxed">
+            Antes de una llamada o un mensaje, tu web ya ha dicho quién eres. Por eso cada detalle cuenta.
           </p>
         </div>
 

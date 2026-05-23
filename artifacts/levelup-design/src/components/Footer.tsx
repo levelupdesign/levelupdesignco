@@ -29,7 +29,7 @@ export function Footer() {
                 LevelUp <span className="text-brand">Design Co.</span>
               </p>
               <p className="mt-3 max-w-sm text-white/55">
-                Diseño web, branding, SEO y automatización para negocios que necesitan una presencia digital seria.
+                Diseño web, branding, SEO y automatización.
               </p>
             </div>
             <div className="flex flex-col items-start gap-2">

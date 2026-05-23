@@ -8,11 +8,11 @@ export function ProblemSolution() {
           </div>
 
           <h3 className="mt-4 font-serif text-3xl text-white leading-tight">
-            Muchas marcas tienen presencia online, pero pocas transmiten realmente confianza, claridad y personalidad.
+            Si tu web no transmite confianza, pierdes clientes antes de hablar con ellos.
           </h3>
 
           <p className="mt-5 text-white/70 leading-relaxed text-sm md:text-base">
-            Una imagen poco cuidada genera dudas, reduce credibilidad y hace que muchas oportunidades pasen desapercibidas.
+            Muchos negocios siguen online con una imagen débil, mensajes confusos y páginas que no convierten. La primera impresión digital marca la diferencia — y hoy muchas marcas la están desperdiciando.
           </p>
         </div>
 
@@ -22,11 +22,11 @@ export function ProblemSolution() {
           </div>
 
           <h3 className="mt-4 font-serif text-3xl text-white leading-tight">
-            El estudio diseña sistemas digitales pensados para que cada negocio se vea sólido, profesional y coherente en todos los detalles.
+            Diseñamos presencia digital que genera confianza y acción.
           </h3>
 
           <p className="mt-5 text-white/70 leading-relaxed text-sm md:text-base">
-            Diseño, estructura y comunicación alineados para que la presencia online transmita claridad, confianza y personalidad.
+            Claridad, profesionalidad y estrategia en cada detalle: una web que comunica quién eres, transmite credibilidad y convierte visitas en oportunidades reales.
           </p>
         </div>
       </div>

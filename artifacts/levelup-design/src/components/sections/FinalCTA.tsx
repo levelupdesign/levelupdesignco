@@ -10,11 +10,11 @@ export function FinalCTA() {
         </div>
 
         <h2 className="mt-3 font-serif text-3xl md:text-4xl text-white leading-tight">
-          Todo negocio merece una presencia digital que impulse su crecimiento y represente a empresas reales.
+          Todo negocio merece una imagen que represente la calidad de su trabajo.
         </h2>
 
         <p className="mt-5 text-base text-white/60 leading-relaxed max-w-xl mx-auto">
-          Si una empresa busca mejorar su imagen, captar más clientes o estructurar su presencia online, el estudio está disponible para valorar el proyecto sin compromiso.
+          Si quieres mejorar tu presencia online, transmitir más confianza o captar más clientes, podemos valorar tu proyecto juntos, sin compromiso.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
