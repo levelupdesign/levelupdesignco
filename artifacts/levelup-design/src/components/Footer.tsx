@@ -108,7 +108,7 @@ export function Footer() {
             </div>
           </FooterColumn>
 
-          <FooterColumn label="Legal">
+          <FooterColumn label="Aviso legal">
             <div className="flex flex-col items-start gap-2 text-sm text-white/60">
               <Link to="/aviso-legal" className="transition hover:text-white">
                 Aviso legal
