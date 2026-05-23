@@ -17,15 +17,15 @@ export function Founder() {
 
       <div className="relative mx-auto max-w-6xl px-5 py-16 md:py-20 lg:py-24">
         <div className="grid gap-12 lg:gap-16">
-          <ScrollReveal className="max-w-xl">
+          <ScrollReveal className="max-w-2xl">
             <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-soft">
               Quiénes somos
             </div>
             <h2 className="mt-3 font-serif text-3xl md:text-[2.35rem] leading-tight text-white">
-              Tu negocio merece verse tan bien online como lo hace en persona
+              Un estudio que digitaliza empresas
             </h2>
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/72 font-sans max-w-lg">
-              Diseñamos y desarrollamos webs con criterio de negocio: claras, profesionales y pensadas para generar confianza desde el primer vistazo.
+            <p className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-white/72 font-sans">
+              Empezamos con lo esencial: creación de página web, perfiles de Google Business y automatizaciones. Después gestionamos tus redes sociales y el SEO en Google para que te encuentren, te vean y te contacten.
             </p>
           </ScrollReveal>
         </div>

@@ -9,6 +9,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Link } from "wouter";
+import { cn } from "@/lib/utils";
 import { site, socialLinks, whatsappLinks } from "@/lib/site";
 
 const iconByLabel = {
@@ -19,13 +20,15 @@ const iconByLabel = {
 
 function FooterColumn({
   label,
+  className,
   children,
 }: {
   label: string;
+  className?: string;
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2.5">
+    <div className={cn("flex min-w-0 flex-col gap-2.5", className)}>
       <p className="text-xs uppercase tracking-[0.28em] text-white/35">{label}</p>
       {children}
     </div>
@@ -38,8 +41,8 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-950 text-white">
       <div className="mx-auto max-w-6xl px-5 py-8 md:py-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,2.4fr)_auto] lg:items-start lg:gap-x-10">
-          <div>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,0.85fr)_auto] lg:items-start lg:gap-x-6 xl:gap-x-10">
+          <div className="min-w-0 lg:col-span-1">
             <p className="font-serif text-xl text-white md:text-2xl" translate="no">
               LevelUp <span className="text-brand">Design Co.</span>
             </p>
@@ -48,70 +51,68 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-10">
-            <FooterColumn label="Contacto">
-              <div className="flex flex-col items-start gap-2">
-                <a
-                  href={`tel:${site.phoneHref}`}
-                  className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-                >
-                  <Phone className="h-3.5 w-3.5 shrink-0 text-brand" />
-                  {site.phoneDisplay}
-                </a>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-                >
-                  <Mail className="h-3.5 w-3.5 shrink-0 text-brand" />
-                  {site.email}
-                </a>
-                <a
-                  href="https://goo.gl/maps/4pYj5BqQYFy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-                >
-                  <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" />
-                  {site.location}
-                </a>
-              </div>
-            </FooterColumn>
+          <FooterColumn label="Contacto" className="lg:pl-6 xl:pl-10">
+            <div className="flex flex-col items-start gap-2">
+              <a
+                href={`tel:${site.phoneHref}`}
+                className="inline-flex max-w-full items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
+              >
+                <Phone className="h-3.5 w-3.5 shrink-0 text-brand" />
+                <span className="truncate">{site.phoneDisplay}</span>
+              </a>
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex max-w-full items-start gap-2.5 text-sm text-white/65 transition hover:text-white"
+              >
+                <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
+                <span className="break-all leading-snug">{site.email}</span>
+              </a>
+              <a
+                href="https://goo.gl/maps/4pYj5BqQYFy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex max-w-full items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
+              >
+                <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" />
+                <span>{site.location}</span>
+              </a>
+            </div>
+          </FooterColumn>
 
-            <FooterColumn label="Redes">
-              <div className="flex flex-col items-start gap-2">
-                {socialLinks.map(({ label, href }) => {
-                  const Icon = iconByLabel[label as keyof typeof iconByLabel];
+          <FooterColumn label="Redes">
+            <div className="flex flex-col items-start gap-2">
+              {socialLinks.map(({ label, href }) => {
+                const Icon = iconByLabel[label as keyof typeof iconByLabel];
 
-                  return (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-                    >
-                      <Icon className="h-3.5 w-3.5 shrink-0 text-brand" />
-                      {label}
-                    </a>
-                  );
-                })}
-              </div>
-            </FooterColumn>
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
+                  >
+                    <Icon className="h-3.5 w-3.5 shrink-0 text-brand" />
+                    {label}
+                  </a>
+                );
+              })}
+            </div>
+          </FooterColumn>
 
-            <FooterColumn label="Legal">
-              <div className="flex flex-col items-start gap-2 text-sm text-white/60">
-                <Link to="/aviso-legal" className="transition hover:text-white">
-                  Aviso legal
-                </Link>
-                <Link to="/privacidad" className="transition hover:text-white">
-                  Política de privacidad
-                </Link>
-                <Link to="/cookies" className="transition hover:text-white">
-                  Política de cookies
-                </Link>
-              </div>
-            </FooterColumn>
-          </div>
+          <FooterColumn label="Legal">
+            <div className="flex flex-col items-start gap-2 text-sm text-white/60">
+              <Link to="/aviso-legal" className="transition hover:text-white">
+                Aviso legal
+              </Link>
+              <Link to="/privacidad" className="transition hover:text-white">
+                Política de privacidad
+              </Link>
+              <Link to="/cookies" className="transition hover:text-white">
+                Política de cookies
+              </Link>
+            </div>
+          </FooterColumn>
 
           <div className="flex flex-col items-start gap-3 sm:col-span-2 lg:col-span-1 lg:items-end lg:text-right">
             <a
