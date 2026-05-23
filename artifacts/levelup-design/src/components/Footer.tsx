@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { LucideIcon, ReactNode } from "react";
 import {
   ArrowUp,
   Facebook,
@@ -22,24 +22,62 @@ function FooterColumn({
   label,
   className,
   children,
-  shrink = true,
 }: {
   label: string;
   className?: string;
   children: ReactNode;
-  shrink?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-2.5",
-        shrink ? "min-w-0" : "shrink-0",
-        className,
-      )}
-    >
+    <div className={cn("flex w-max flex-col gap-2.5", className)}>
       <p className="text-xs uppercase tracking-[0.28em] text-white/35">{label}</p>
       {children}
     </div>
+  );
+}
+
+function FooterRow({
+  icon: Icon,
+  href,
+  to,
+  children,
+  external = false,
+}: {
+  icon?: LucideIcon;
+  href?: string;
+  to?: string;
+  children: ReactNode;
+  external?: boolean;
+}) {
+  const rowClass =
+    "grid grid-cols-[14px_max-content] items-center gap-x-2.5 text-sm leading-none text-white/65 transition hover:text-white";
+
+  const content = (
+    <>
+      {Icon ? (
+        <Icon className="h-3.5 w-3.5 shrink-0 text-brand" />
+      ) : (
+        <span className="h-3.5 w-3.5 shrink-0" aria-hidden />
+      )}
+      <span className="whitespace-nowrap">{children}</span>
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={rowClass}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      className={rowClass}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      {content}
+    </a>
   );
 }
 
@@ -49,7 +87,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-950 text-white">
       <div className="mx-auto max-w-6xl px-5 py-8 md:py-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_max-content_max-content_max-content_auto] lg:items-start lg:gap-x-8 xl:gap-x-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_repeat(3,max-content)_auto] lg:items-start lg:gap-x-10 xl:gap-x-14">
           <div className="min-w-0 lg:col-span-1">
             <p className="font-serif text-xl text-white md:text-2xl" translate="no">
               LevelUp <span className="text-brand">Design Co.</span>
@@ -59,75 +97,43 @@ export function Footer() {
             </p>
           </div>
 
-          <FooterColumn label="Contacto" shrink={false} className="lg:pl-4 xl:pl-8">
-            <div className="flex flex-col items-start gap-2">
-              <a
-                href={`tel:${site.phoneHref}`}
-                className="inline-flex w-max items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-              >
-                <Phone className="h-3.5 w-3.5 shrink-0 text-brand" />
-                <span className="whitespace-nowrap">{site.phoneDisplay}</span>
-              </a>
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-flex w-max max-w-none items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-              >
-                <Mail className="h-3.5 w-3.5 shrink-0 text-brand" />
-                <span className="whitespace-nowrap">{site.email}</span>
-              </a>
-              <a
+          <FooterColumn label="Contacto">
+            <div className="flex flex-col gap-2">
+              <FooterRow icon={Phone} href={`tel:${site.phoneHref}`}>
+                {site.phoneDisplay}
+              </FooterRow>
+              <FooterRow icon={Mail} href={`mailto:${site.email}`}>
+                {site.email}
+              </FooterRow>
+              <FooterRow
+                icon={MapPin}
                 href="https://goo.gl/maps/4pYj5BqQYFy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex max-w-full items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
+                external
               >
-                <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" />
-                <span>{site.location}</span>
-              </a>
+                {site.location}
+              </FooterRow>
             </div>
           </FooterColumn>
 
           <FooterColumn label="Redes">
-            <div className="flex flex-col items-start gap-2">
+            <div className="flex flex-col gap-2">
               {socialLinks.map(({ label, href }) => {
                 const Icon = iconByLabel[label as keyof typeof iconByLabel];
 
                 return (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
-                  >
-                    <Icon className="h-3.5 w-3.5 shrink-0 text-brand" />
+                  <FooterRow key={label} icon={Icon} href={href} external>
                     {label}
-                  </a>
+                  </FooterRow>
                 );
               })}
             </div>
           </FooterColumn>
 
-          <FooterColumn label="Aviso legal" shrink={false} className="min-w-[11.5rem]">
-            <div className="flex flex-col items-start gap-2">
-              <Link
-                to="/aviso-legal"
-                className="inline-flex w-full items-center text-sm leading-snug text-white/60 transition hover:text-white"
-              >
-                Aviso legal
-              </Link>
-              <Link
-                to="/privacidad"
-                className="inline-flex w-full items-center text-sm leading-snug text-white/60 transition hover:text-white"
-              >
-                Política de privacidad
-              </Link>
-              <Link
-                to="/cookies"
-                className="inline-flex w-full items-center text-sm leading-snug text-white/60 transition hover:text-white"
-              >
-                Política de cookies
-              </Link>
+          <FooterColumn label="Aviso legal">
+            <div className="flex flex-col gap-2">
+              <FooterRow to="/aviso-legal">Aviso legal</FooterRow>
+              <FooterRow to="/privacidad">Política de privacidad</FooterRow>
+              <FooterRow to="/cookies">Política de cookies</FooterRow>
             </div>
           </FooterColumn>
 
