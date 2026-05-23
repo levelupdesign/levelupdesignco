@@ -4,13 +4,13 @@ import { whatsappLinks } from "@/lib/site";
 export function FinalCTA() {
   return (
     <section className="bg-transparent">
-      <div className="mx-auto max-w-3xl px-5 py-16 md:py-20 text-center">
+      <div className="mx-auto max-w-2xl px-5 py-14 md:py-16 text-center">
         <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand/70">
           Contacto
         </div>
 
-        <h2 className="mt-3 font-serif text-3xl md:text-4xl text-white leading-tight">
-          Todo negocio merece una imagen que represente la calidad de su trabajo.
+        <h2 className="mt-3 font-serif text-3xl md:text-[2.35rem] text-white leading-tight">
+          Todo negocio merece una imagen que la represente
         </h2>
 
         <p className="mt-5 text-base text-white/60 leading-relaxed max-w-xl mx-auto">

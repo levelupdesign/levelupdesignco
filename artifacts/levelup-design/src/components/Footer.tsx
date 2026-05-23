@@ -21,45 +21,49 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-slate-950 text-white">
-      <div className="mx-auto max-w-6xl px-5 py-10 md:py-12">
-        <div className="grid gap-9 text-sm md:grid-cols-[1.35fr_1fr_1fr_auto] md:items-start">
-          <div className="space-y-4">
-            <div>
-              <p className="font-serif text-2xl text-white" translate="no">
-                LevelUp <span className="text-brand">Design Co.</span>
-              </p>
-              <p className="mt-3 max-w-sm text-white/55">
-                Diseño web, branding, SEO y automatización.
-              </p>
-            </div>
+      <div className="mx-auto max-w-6xl px-5 py-8 md:py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.1fr)_repeat(3,minmax(0,0.85fr))_auto] lg:items-start lg:gap-6">
+          <div>
+            <p className="font-serif text-xl text-white md:text-2xl" translate="no">
+              LevelUp <span className="text-brand">Design Co.</span>
+            </p>
+            <p className="mt-2 max-w-[14rem] text-sm leading-snug text-white/55">
+              Diseño web, branding, SEO y automatización.
+            </p>
+          </div>
+
+          <div className="space-y-2.5">
+            <p className="text-xs uppercase tracking-[0.28em] text-white/35">
+              Contacto
+            </p>
             <div className="flex flex-col items-start gap-2">
               <a
                 href={`tel:${site.phoneHref}`}
-                className="inline-flex items-center gap-3 text-white/65 transition hover:text-white"
+                className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
               >
-                <Phone className="h-4 w-4 text-brand" />
+                <Phone className="h-3.5 w-3.5 shrink-0 text-brand" />
                 {site.phoneDisplay}
               </a>
               <a
                 href={`mailto:${site.email}`}
-                className="inline-flex items-center gap-3 text-white/65 transition hover:text-white"
+                className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
               >
-                <Mail className="h-4 w-4 text-brand" />
+                <Mail className="h-3.5 w-3.5 shrink-0 text-brand" />
                 {site.email}
               </a>
               <a
                 href="https://goo.gl/maps/4pYj5BqQYFy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-white/65 transition hover:text-white"
+                className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
               >
-                <MapPin className="h-4 w-4 text-brand" />
+                <MapPin className="h-3.5 w-3.5 shrink-0 text-brand" />
                 {site.location}
               </a>
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <p className="text-xs uppercase tracking-[0.28em] text-white/35">
               Redes
             </p>
@@ -73,9 +77,9 @@ export function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 text-white/65 transition hover:text-white"
+                    className="inline-flex items-center gap-2.5 text-sm text-white/65 transition hover:text-white"
                   >
-                    <Icon className="h-4 w-4 text-brand" />
+                    <Icon className="h-3.5 w-3.5 shrink-0 text-brand" />
                     {label}
                   </a>
                 );
@@ -83,11 +87,11 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <p className="text-xs uppercase tracking-[0.28em] text-white/35">
               Legal
             </p>
-            <div className="flex flex-col items-start gap-2 text-white/60">
+            <div className="flex flex-col items-start gap-2 text-sm text-white/60">
               <Link to="/aviso-legal" className="transition hover:text-white">
                 Aviso legal
               </Link>
@@ -100,7 +104,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col items-start gap-4 md:items-end md:text-right">
+          <div className="flex flex-col items-start gap-3 sm:col-span-2 lg:col-span-1 lg:items-end lg:text-right">
             <a
               href={whatsappLinks.call}
               target="_blank"
@@ -111,13 +115,13 @@ export function Footer() {
             </a>
             <a
               href="#top"
-              className="inline-flex items-center gap-2 text-white/60 transition hover:text-white"
+              className="inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
             >
               Volver arriba
               <ArrowUp className="h-4 w-4 text-brand" />
             </a>
-            <p className="text-white/40" translate="no">
-              © {year} LevelUp Design Co. Todos los derechos reservados.
+            <p className="text-xs text-white/40" translate="no">
+              © {year} LevelUp Design Co.
             </p>
           </div>
         </div>

@@ -22,13 +22,10 @@ export function Founder() {
               Quiénes somos
             </div>
             <h2 className="mt-3 font-serif text-3xl md:text-[2.35rem] leading-tight text-white">
-              Diseño web con trato directo y acompañamiento real
+              Tu negocio merece verse tan bien online como lo hace en persona
             </h2>
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/72 font-sans">
-              Somos un equipo pequeño que trabaja contigo de cerca: escuchamos tu negocio, entendemos lo que necesitas y construimos una presencia digital que te represente con autenticidad.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-white/55 max-w-md">
-              Sin intermediarios ni procesos fríos. Hablas con quien diseña y desarrolla tu proyecto, con seguimiento cercano en cada paso.
+            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/72 font-sans max-w-lg">
+              Diseñamos y desarrollamos webs con criterio de negocio: claras, profesionales y pensadas para generar confianza desde el primer vistazo.
             </p>
           </ScrollReveal>
         </div>
