@@ -1,0 +1,46 @@
+# Publica en gh-pages mientras levelupsolutions.es resuelva a GitHub Pages (185.199.x.x).
+# Cuando el dominio apunte solo a Vercel, desactivar este workflow en GitHub Actions.
+name: Deploy live (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: node ./scripts/build-static-site.mjs
+        env:
+          DEPLOY_TARGET: github-pages
+          GITHUB_PAGES_CUSTOM_DOMAIN: levelupsolutions.es
+
+      - name: Publish gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          commit-message: "deploy: ${{ github.sha }}"
